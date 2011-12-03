@@ -1,0 +1,43 @@
+MCS 360 Project 5
+Daniel Uber duber3@uic.edu
+
+Testing hash functions using separate chaining (linked lists).
+
+This is slightly modified code from the handout.
+The function main will use the NUMFUNS functions in hashfunctions.cc
+to hash strings from randwords.txt. A prime tablesize is selected
+and used (first prime larger than argv[1]/argv[2]).
+
+As a shortcut, the input routines are faulty, and entering any letter
+will jump without printing collisions to the summary. (This is nice
+for testing).
+
+functions h7 and h8 were written (without a lot of thought).
+The collisions are comparable to the earlier functions (excepting h0
+and h5 which are very bad), but the runtime of h7 is significantly longer
+than the other functions (too much work for too little gain).
+
+No attempt was made to change the length of the strings. In some places
+this is hardwired (not passed as argument) and in others it is variable.
+
+A few memory leaks were found and fixed. A dangerous dereference was 
+checked for. Valgrind confirms no leaks.
+
+Here is an example summary. h9 is encrypt(), which has good results
+but high cost. h0 and h5 are expensive due to linked list operations.
+h7, h8, and h9 are my own examples.
+
+numElements:	160000
+tableSize:	53353
+loadFactor:	3.00
+hashFunction 	 Max Collisions 	 Put&GetTime(sec)
+0		2713		24.130
+1		12		0.180
+2		13		0.280
+3		14		0.170
+4		13		0.270
+5		1051		7.030
+6		19		0.150
+7		14		0.410
+8		13		0.210
+9		12		1.940
