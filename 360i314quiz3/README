@@ -1,0 +1,8 @@
+MCS360 Quiz 3
+Daniel Uber 
+
+Problem 1 uses pointer arithmetic to traverse an array as an alternative to 
+index notation.
+
+Problems 2 through 4 demonstrate pointers, references, and static variables
+as different return mechanisms for multiple return values.

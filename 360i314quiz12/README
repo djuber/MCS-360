@@ -1,0 +1,12 @@
+MCS 360 Quiz 12
+Daniel Uber
+
+Singly linked list implementation.
+Copy constructor and assignment operator implementations using header node 
+and without. Execute `make run` or `make run-header` to test.
+Header node implementation and non-header implementation are in 
+list.cc and list2.cc, and a single header and client use 
+them indistinguishably. 
+
+Tested with Valgrind, no leaks, only additional overhead is one
+alloc/free for each List object created at runtime.

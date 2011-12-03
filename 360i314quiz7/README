@@ -1,0 +1,15 @@
+MCS 360 Quiz 7
+Daniel Uber
+
+Implement a program that validates delimiter nesting in source code.
+On mismatched closing delimiter, indicate an error with line number and 
+character column number where the mismatch occured.
+
+Use a stack to hold the open delimiters. 
+
+badfile is used to jog the system, and make sure I had enough alloc's
+to get useful results from the memory leak checker, and is not part of
+the program.
+
+Some additional work would be required to optionally ignore delimiters
+included inside quotes, and to allow runtime changes to the set of delimiters.

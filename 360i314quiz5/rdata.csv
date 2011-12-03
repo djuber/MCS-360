@@ -1,0 +1,22 @@
+# file : rdata.csv
+# input 
+# Daniel Uber 
+# MCS 360 Quiz 5
+# poorly formatted to handle edge cases
+# unfortunately, blank lines produce a zero value (this may be wrong)
+# successive commas are zeros, empty slashes are zeros, etc.
+1 / 2 , -1 , 3/-2 , 2 , -5/ 2 , 3
+-7 / - 2 , 4 , 9 / 2 , 5 , 11/2 
+2 / 3 , 2 /4 , 3/ 5 , 4 , 1/5 , 6
+27/6 , -24/2 , 3/33 , 4 , -5/-1 , 6
+1 /,,,-,,/,///,
+
+
+
+
+
+
+
+2
+3 / 4
+*

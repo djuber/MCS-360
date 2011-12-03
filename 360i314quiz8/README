@@ -1,0 +1,25 @@
+MCS 360 Quiz 8
+Daniel Uber
+
+rewrite a linked list to not use a header node, preserving the interface (transparent to the user)
+
+The problem with elimination of the header node is that there is no way to insert at the beginning without 
+changing the interface. The right interface would include a push_front() function to do this.
+The current interface uses a magic zeroth() iterator, which exposes the existence of the dummy node to the user.
+In order to correctly emulate this behavior without having a dummy node, the zeroth() call needs to return an iterator
+flagged as a header, while first returns the same point, not flagged as header. Then advance needs to check if this was
+a zeroth iterator before checking if it's null, and ask the list (which needed to be past to the zeroth iterator's constructor)
+to give the first, since likely the zeroth was null, but the list's header pointer may no longer be. Additionally, the default
+Object value which had been stored in the header node is now captured in a const Object Default.
+
+I had a great solution that was much cleaner, but had significant behavior differences when used in main. 
+It is unclear what inserting _after_ NULL should do. 
+
+Additionally, issues exist in the orginal list.h, it uses iostream and namespace std, which worked fine from the main
+program the way it was written, but including the headers in a different order results in an error. Another issue, which
+I'm not sure can be easily fixed without type introspection, is that if element is a pointer rather than an object,
+remove doesn't delete element.
+
+Lastly, ListNode should be a private class within List, and has been moved there. 
+ 
+Verified with valgrind, all blocks freed with no leaks. No errors detected.

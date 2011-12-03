@@ -1,0 +1,19 @@
+MCS 360 Quiz 13
+Daniel Uber
+
+Modify Binary Search Tree code to support removal of nodes.
+I used the simplest way possible, with no attempt to preserve balance.
+When a node is found with key, set the left tree to the current position,
+then graft the right tree into the left tree.
+Repeated removals will tend to make the tree highly unbalanced, but so would
+in order insertions.
+Cleaned up some of the code (typo for destoy/destroy, memory error in find on
+an empty tree, no destructor, too many public functions). Added remove(), added
+findParent, added insert(node, node) to support grafting.
+
+I understand that a better way to do this would be to maintain balance, but
+this requires rewriting both insert and remove to support rebalancing/rotation
+using AVL algorithm (CLRS p333 or KW p628-643).
+
+A few worst case removals were added to main, with calls to display following to observe
+the effect.

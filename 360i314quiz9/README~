@@ -1,0 +1,140 @@
+MCS360 Week 9 Lab
+Daniel Uber
+
+In many cases segmentation faults are related to 
+the recursive nature of the programs I wrote. For
+length small enough to finish, these are functionally
+equivalent to an iterative approach. For lengths large
+enough to overflow the stack, there is some wisdom
+in finding an iterative solution. Linked lists are not
+well adapted to iteration, but are perfectly suited to
+recursion.
+
+The punchline to the timing data is that mergesort finishes
+in under 2 seconds what takes over an hour for insertion sort
+on a fast machine for 2^19 elements. For a quick comparison, the
+census data statistical abstract for income records 78.8M families,
+more than a hundred times larger than 2^19. 2^19 is not large
+enough to hold even the number of asian households in the US
+in 2009. Neither is it large enough to hold the 632,909 families
+residing in the city of Chicago, nor the more than 1M households
+in the city.
+
+Short of reasoning this out for myself, I consult the textbook:
+
+Best case for insertion sort is O(n).
+Average case for insertion sort is O(n^2)
+worst case for insertion sort is O(n^2)
+
+Best case for merge sort is O(n lg n)
+Average case for merge sort is O(n lg n)
+Worst case for merge sort is O(n lg n)
+
+How much better is O(n lg n) compared to O(n^2)?
+Methodology: use rand to insert cells out of order.
+Call appropriate sort function.
+Lather, rinse, repeat. Stop on segfault.
+
+It looks like my kernel measures time in 10 millisecond
+intervals, per POSIX, clock returns microseconds regardless
+of internal clock mechanism
+
+(first test: laptop AMD Turion x2 2.1GHz 64-bit)
+for 1 elements isort took 0 microseconds.
+for 1 elements msort took 0 microseconds.
+for 10 elements isort took 0 microseconds.
+for 10 elements msort took 0 microseconds.
+for 100 elements isort took 0 microseconds.
+for 100 elements msort took 0 microseconds.
+for 1000 elements isort took 0 microseconds.
+for 1000 elements msort took 0 microseconds.
+for 10000 elements isort took 270000 microseconds.
+for 10000 elements msort took 10000 microseconds.
+for 100000 elements isort took 65510000 microseconds.
+for 100000 elements msort took 200000 microseconds.
+here isort took 65.5s, msort took .2s for 10^6 elements
+
+(these results from a desktop core i7 64-bit)
+(rewrote to double rather than multiply by ten)
+for 2048 elements isort took 10000 microseconds.
+for 2048 elements msort took 0 microseconds.
+for 4096 elements isort took 40000 microseconds.
+for 4096 elements msort took 0 microseconds.
+for 8192 elements isort took 170000 microseconds.
+for 8192 elements msort took 10000 microseconds.
+for 16384 elements isort took 1070000 microseconds.
+for 16384 elements msort took 20000 microseconds.
+for 32768 elements isort took 6120000 microseconds.
+for 32768 elements msort took 60000 microseconds.
+for 65536 elements isort took 28020000 microseconds.
+for 65536 elements msort took 120000 microseconds.
+Segmentation fault 
+(isort does heavy recursion seeking the tail, 
+overflowed the stack--not surprising)
+here isort took 28s, msort .12s for 2^16 elements
+
+(first machine, laptop with AMD Turion x2 2.1Ghz 64bit)
+for 2048 elements isort took 10000 microseconds.
+for 2048 elements msort took 0 microseconds.
+for 4096 elements isort took 50000 microseconds.
+for 4096 elements msort took 10000 microseconds.
+for 8192 elements isort took 280000 microseconds.
+for 8192 elements msort took 20000 microseconds.
+for 16384 elements isort took 1400000 microseconds.
+for 16384 elements msort took 40000 microseconds.
+for 32768 elements isort took 8210000 microseconds.
+for 32768 elements msort took 90000 microseconds.
+for 65536 elements isort took 81990000 microseconds.
+for 65536 elements msort took 230000 microseconds.
+for 131072 elements isort took 550430000 microseconds.
+for 131072 elements msort took 560000 microseconds.
+segmentation fault
+msort 0.56s, isort 9m10s for 2^17 elements 
+
+(results from raphael Pentium 4 2.5Ghz 32 bit)
+for 8192 elements isort took 190000 microseconds.                          
+for 8192 elements msort took 30000 microseconds.                           
+for 16384 elements isort took 850000 microseconds.                         
+for 16384 elements msort took 60000 microseconds.                          
+for 32768 elements isort took 8370000 microseconds.                        
+for 32768 elements msort took 130000 microseconds.                          
+for 65536 elements isort took 98780000 microseconds.                       
+for 65536 elements msort took 320000 microseconds.                         
+for 131072 elements isort took 756550000 microseconds.                     
+for 131072 elements msort took 820000 microseconds.                        
+Segmentation fault (no surprise here)                                                         
+high end isort: 12.5 minutes, msort 0.82s, 2^17 element
+
+play around with rlimit to really let the machine punish itself
+this corresponds to the commented out code
+(second machine again, core i7, make coffee and have a snack, this will run a while)
+for 2048 elements isort took 10000 microseconds.                           
+for 2048 elements msort took 0 microseconds.                               
+for 4096 elements isort took 40000 microseconds.                           
+for 4096 elements msort took 0 microseconds.                               
+for 8192 elements isort took 180000 microseconds.                          
+for 8192 elements msort took 10000 microseconds.                           
+for 16384 elements isort took 1100000 microseconds.                        
+for 16384 elements msort took 30000 microseconds.                                                                                                     
+for 32768 elements isort took 6120000 microseconds.                        
+for 32768 elements msort took 60000 microseconds.                          
+for 65536 elements isort took 28030000 microseconds.                       
+for 65536 elements msort took 120000 microseconds.                         
+for 131072 elements isort took 123360000 microseconds.                     
+for 131072 elements msort took 260000 microseconds.                        
+for 262144 elements isort took 626330000 microseconds.                     
+for 262144 elements msort took 600000 microseconds.                        
+for 524288 elements isort took 4352650000 microseconds.                    
+for 524288 elements msort took 1390000 microseconds.                       
+for 2^19 elements, this finished(no segfaults)
+msort took 1.4s
+isort took 1h12m32.65s
+
+As always, memory leaks were checked with valgrind (up to 2^7):
+==10587== HEAP SUMMARY:
+==10587==     in use at exit: 0 bytes in 0 blocks
+==10587==   total heap usage: 3,833 allocs, 3,833 frees, 61,328 bytes allocated
+==10587== 
+==10587== All heap blocks were freed -- no leaks are possible
+
+

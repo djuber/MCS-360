@@ -1,0 +1,15 @@
+Week 10 Quiz
+Daniel Uber
+
+type make run to run test program. 
+type make to build from source.
+
+I really wanted to template the mergesort, but array
+is too low level to allow reservation of temporary space
+without a lot of finesse. Currently just use polymorphism
+in the function signatures to allow mergesort to do the right
+thing.
+
+Unfortunately, storing the class id as a string takes some
+discipline, as leading zeroes are required (04<05<4<5).
+
