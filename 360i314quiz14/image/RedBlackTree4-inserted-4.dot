@@ -1,0 +1,20 @@
+digraph Tree {
+//blue is a left link, red is a right link
+"2"->"1" [color="blue"] 
+"1"->"L1" [style="invis"]
+"L1" [style="invis"]
+"1"->"R1" [style="invis"]
+"R1" [style="invis"]
+"1" [color="black"]
+"2"->"3" [color="red"]
+"3"->"L3" [style="invis"]
+"L3" [style="invis"]
+"3"->"4" [color="red"]
+"4"->"L4" [style="invis"]
+"L4" [style="invis"]
+"4"->"R4" [style="invis"]
+"R4" [style="invis"]
+"4" [color="red"]
+"3" [color="black"]
+"2" [color="black"]
+}

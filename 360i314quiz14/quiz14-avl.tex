@@ -1,0 +1,224 @@
+%% LyX 2.0.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+%% I promise I'll be careful, warning message. -dju
+%% there is some magic going on with the lyx formatting
+%% that doesn't allow me to compile this in the source directory?
+%% even after updating the directory names for the images this caused some
+%% trouble
+%% the big advantage to lyx's dot command is that it somehow skips
+%% over the .dot portion of the filename and gets right to the .png
+%% this saves me from having to learn enough shell programming to 
+%% separate the basename from the extension(s) of a file
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\usepackage{beamerarticle,pgf}
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+\AtBeginDocument{
+\let\origtableofcontents=\tableofcontents
+\def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+\def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\section{Overview}
+
+MCS 360 Week 14 Quiz,
+Daniel Uber, duber3@uic.edu
+
+
+1. write the complete solution to the in-class AVL problem. Follow the instructions on the quiz for when to re-draw the tree.
+
+2. Write the complete solution to the same problem except use a Red-Black Tree (notes attached) instead of an AVL tree. Follow the instructions on the quiz for when to re-draw the tree.
+
+3. Your solution is to be sent electronically as was the take-home part of the other quizzes. Here is how to create an electronic version. 
+
+These images were generated programmatically during insertions. Graphviz dot program was used to translate digraph descriptions to png files. Lyx was used briefly to preview and align images, and pdflatex was used to create this file.
+
+\section{AVL Tree}
+\subsection*{insert 3}
+
+\includegraphics[scale=0.35]{image/png/AVLTree0-insert-3\lyxdot dot}
+
+\subsection*{insert 2}
+
+\includegraphics[scale=0.35]{image/png/AVLTree1-insert-2\lyxdot dot}
+
+\subsection*{insert 1}
+
+\includegraphics[scale=0.35]{image/png/AVLTree2-before-left-3\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/AVLTree3-insert-1\lyxdot dot}
+
+\subsection*{insert 4}
+
+\includegraphics[scale=0.35]{image/png/AVLTree4-insert-4\lyxdot dot}
+
+\subsection*{insert 5}
+
+\includegraphics[scale=0.35]{image/png/AVLTree5-before-right-3\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/AVLTree6-insert-5\lyxdot dot}
+
+\subsection*{insert 6}
+
+\includegraphics[scale=0.35]{image/png/AVLTree7-before-right-2\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/AVLTree8-insert-6\lyxdot dot}
+
+\subsection*{insert 7}
+
+\includegraphics[scale=0.35]{image/png/AVLTree9-before-right-5\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/AVLTree10-insert-7\lyxdot dot}
+
+\subsection*{insert 16}
+
+\includegraphics[scale=0.35]{image/png/AVLTree11-insert-16\lyxdot dot}
+
+\subsection*{insert 15}
+
+\includegraphics[scale=0.35]{image/png/AVLTree12-before-right-7\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/AVLTree13-right-16\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/AVLTree14-insert-15\lyxdot dot}
+
+\subsection*{insert 14}
+
+\includegraphics[scale=0.35]{image/png/AVLTree15-before-right-6\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/AVLTree16-right-15\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/AVLTree17-insert-14\lyxdot dot}
+
+\subsection*{insert 13}
+
+\includegraphics[scale=0.35]{image/png/AVLTree18-before-right-4\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/AVLTree19-insert-13\lyxdot dot}
+
+\subsection*{insert 11}
+
+\includegraphics[scale=0.35]{image/png/AVLTree20-before-left-14\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/AVLTree21-insert-11\lyxdot dot}
+
+\subsection*{insert 10}
+
+\includegraphics[scale=0.35]{image/png/AVLTree22-before-left-15\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/AVLTree23-insert-10\lyxdot dot}
+
+\subsection*{insert 8}
+
+\includegraphics[scale=0.35]{image/png/AVLTree24-before-left-11\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/AVLTree25-insert-8\lyxdot dot}
+
+\subsection*{insert 9}
+
+\includegraphics[scale=0.35]{image/png/AVLTree26-insert-9\lyxdot dot}
+
+
+
+
+
+\section{Red Black Tree}
+\subsection*{insert 3}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree0-inserted-3\lyxdot dot}
+
+\subsection*{insert 2}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree1-inserted-2\lyxdot dot}
+
+\subsection*{insert 1}
+\includegraphics[scale=0.35]{image/png/RedBlackTree2-right-3\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree3-inserted-1\lyxdot dot}
+
+\subsection*{insert 4}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree4-inserted-4\lyxdot dot}
+
+\subsection*{insert 5}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree5-left-3\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree6-inserted-5\lyxdot dot}
+
+\subsection*{insert 6}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree7-inserted-6\lyxdot dot}
+
+\subsection*{insert 7}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree8-left-5\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree9-inserted-7\lyxdot dot}
+
+
+\subsection*{insert 16}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree10-left-2\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree11-inserted-16\lyxdot dot}
+
+\subsection*{insert 15}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree12-right-7\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree13-left-7\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree14-inserted-15\lyxdot dot}
+
+\subsection*{insert 14}
+\includegraphics[scale=0.35]{image/png/RedBlackTree15-inserted-14\lyxdot dot}
+
+\subsection*{insert 13}
+\includegraphics[scale=0.35]{image/png/RedBlackTree16-right-7\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree17-left-7\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree18-inserted-13\lyxdot dot}
+
+\subsection*{insert 11}
+\includegraphics[scale=0.35]{image/png/RedBlackTree19-right-6\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree20-left-6\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree21-inserted-11\lyxdot dot}
+
+\subsection*{insert 10}
+\includegraphics[scale=0.35]{image/png/RedBlackTree22-right-7\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree23-left-7\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree24-inserted-10\lyxdot dot}
+
+\subsection*{insert 8}
+\includegraphics[scale=0.35]{image/png/RedBlackTree25-inserted-8\lyxdot dot}
+
+\subsection*{insert 9}
+\includegraphics[scale=0.35]{image/png/RedBlackTree26-left-7\lyxdot dot}
+
+\includegraphics[scale=0.35]{image/png/RedBlackTree27-inserted-9\lyxdot dot}
+
+\end{document}
