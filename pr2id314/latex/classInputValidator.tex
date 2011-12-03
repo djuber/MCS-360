@@ -1,0 +1,122 @@
+\hypertarget{classInputValidator}{
+\section{InputValidator$<$ T $>$ Class Template Reference}
+\label{classInputValidator}\index{InputValidator@{InputValidator}}
+}
+{\tt \#include $<$InputValidator.h$>$}
+
+Collaboration diagram for InputValidator$<$ T $>$:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=77pt]{classInputValidator__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+T \hyperlink{classInputValidator_4d554feb8dc41f8990e62a34d2678574}{input} (std::string prompt)
+\begin{CompactList}\small\item\em checks that response was received from cin. \item\end{CompactList}\item 
+T \hyperlink{classInputValidator_c00d4a6ca94d48eb3c8b9e2b57b31950}{guardedInput} (std::string prompt, std::string reprompt, T guard)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$ class InputValidator$<$ T $>$}
+
+\begin{Desc}
+\item[Template Parameters:]
+\begin{description}
+\item[{\em T}]is the type of input to look for\end{description}
+\end{Desc}
+T must provide the equality operator This is error prone with doubles so some external checks are in order 
+
+Definition at line 25 of file InputValidator.h.
+
+\subsection{Member Function Documentation}
+\hypertarget{classInputValidator_4d554feb8dc41f8990e62a34d2678574}{
+\index{InputValidator@{InputValidator}!input@{input}}
+\index{input@{input}!InputValidator@{InputValidator}}
+\subsubsection[input]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T {\bf InputValidator}$<$ T $>$::input (std::string {\em prompt})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classInputValidator_4d554feb8dc41f8990e62a34d2678574}
+
+
+checks that response was received from cin. 
+
+\hyperlink{classInputValidator_4d554feb8dc41f8990e62a34d2678574}{input()} presents a prompt and returns response. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prompt}]is a string to present before reading \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]response \end{Desc}
+
+
+Definition at line 33 of file InputValidator.h.
+
+\begin{Code}\begin{verbatim}33                             {
+34     std::cin.clear();
+35     std::cout<<prompt;
+36     std::cin>>response;
+37     if(std::cin.fail())
+38       return input(prompt);
+39     else
+40       return response;
+41   }
+\end{verbatim}
+\end{Code}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=78pt]{classInputValidator_4d554feb8dc41f8990e62a34d2678574_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{classInputValidator_c00d4a6ca94d48eb3c8b9e2b57b31950}{
+\index{InputValidator@{InputValidator}!guardedInput@{guardedInput}}
+\index{guardedInput@{guardedInput}!InputValidator@{InputValidator}}
+\subsubsection[guardedInput]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T {\bf InputValidator}$<$ T $>$::guardedInput (std::string {\em prompt}, \/  std::string {\em reprompt}, \/  T {\em guard})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classInputValidator_c00d4a6ca94d48eb3c8b9e2b57b31950}
+
+
+guardedInput presents a prompt and ensures some new information was given. Allows a custom reprompt.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em prompt}]is the string to present prior to input \item[{\em reprompt}]is a corrective hint \item[{\em guard}]is a known bad value that should not be set \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Postcondition:]response is not guard. \end{Desc}
+\begin{Desc}
+\item[Returns:]response \end{Desc}
+
+
+Definition at line 52 of file InputValidator.h.
+
+\begin{Code}\begin{verbatim}52                                                                {
+53     response = guard;
+54     while(response==guard){
+55       std::cout<<prompt;
+56       std::cin>>response;
+57       if(std::cin.fail()){
+58     std::cout<<reprompt;
+59     response=guard;
+60     std::cin.clear();
+61     std::cin.ignore(100,'\n');
+62       }
+63     }
+64     return response;
+65   }
+\end{verbatim}
+\end{Code}
+
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{InputValidator_8h}{InputValidator.h}\end{CompactItemize}

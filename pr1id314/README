@@ -1,0 +1,42 @@
+Project 1
+MCS 360 Fall 2011
+Daniel Uber duber3@uic.edu
+
+Grocery store inventory program.
+
+make project1 to build
+make run to start
+make doc to create a manual
+make will build program and manual
+
+a script fixdoc will append desirable additions to the Doxyfile
+You may need to tailor this to get proper output from doxygen
+or simply use your own Doxyfile. You will need to set 
+RECURSIVE=YES or it won't find the sources.
+
+a sample inventory is in the inventories folder
+the program does understand file opening with relative paths, and backups
+will occur in the same path as the original file if trying to overwrite.
+
+Possible long term improvements: 
+-------------------------------------------------------------------------
+Modify template of isort to assume vector<T>, and only specify contenttype
+or change isort to use iterators rather than index operators. Better yet,
+find a better sort algorithm (I think the stl has a good stable_sort).
+
+If vector has been sorted, don't resort by code prior to writing.
+
+Get current month at startup. Current default is invalid month. It would 
+be great if this defaulted to the right thing.
+
+Actually track running averages. this requires a number of months
+in history field for each item, and would need to be updated during
+monthly update when current sales are cleared. Since the Item class
+was a little overspecified, I hesitate to add fields.
+
+Clean up addition and scalar multiplication of dollar amounts. Implement
+addition operator and multiplication by int or double. This is only used
+in calculating sales, and isn't duplicated. Also, move dollar sanity
+checks into the constructor (cents < 0 or cents > 99 is wrong).
+
+Rethink names of private fields in Item. 

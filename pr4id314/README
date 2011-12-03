@@ -1,0 +1,19 @@
+Integer Dictionary Program
+Daniel Uber duber3@uic.edu
+MCS 360 Fall 2011 Project 4
+
+This is a simple binary search tree demonstration program.
+The user is able to add numbers from the menu or from a file.
+The numbers may be searched using lookup, listed in order using
+display, saved in order to file, and the tree may be dumped to 
+a graphviz file.
+
+A simple example file integers.txt is provided.
+
+make to build
+make doc to generate doxygen output
+make graphics to process saved dot files
+make clean to restore to source, removing images also
+
+
+The generated program is called runpr4id314.

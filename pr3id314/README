@@ -1,0 +1,24 @@
+MCS 360 Project 3
+Daniel Uber duber3@uic.edu
+Infix to Postfix conversion and evaluation
+
+Take an infix expression from the input stream
+Clean up expression (single spaces between all binary operators and operands)
+Convert to Postfix using C order of operations:
+*  / %	left-to-right
++  -	left-to-right
+Evaluate and print result
+
+make run to execute
+make to build
+make test will overwrite program and run test suite
+make doc will generate documentation
+make clean will remove temporary files
+
+Note: The assigment mentions % as an operator 
+(when discussing the precedence of exponentiation) but this is not
+defined on floating point numbers. The best we could do is take a- (floor(a/b))*b. This is left associative and equal in precedence to multiplication.
+
+Shunting Yard algorithm is thanks to Edsger Dijkstra (1930-2002).
+
+

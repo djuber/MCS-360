@@ -1,0 +1,38 @@
+MCS 360 Fall 2011
+Daniel Uber
+Project 2
+
+Polynomial Manipulation
+
+Implement a polynomial class as a linked list of terms.
+Term contains a coefficient and a degree.
+Implement polynomial arithmetic (multiplication, addition,
+negation, subtraction, assignment).
+Allow addition of new terms. Reduce to simplify, combine
+like terms.
+Allow display of polynomial in terms of a variable x.
+
+Caveats:
+	repeated squaring of polynomials with many terms is a bad idea,
+	since the number of terms in the next stage is O(1/2*n^2)
+	and the insert/reduce routine is O(n), and term by term 
+	multiplication is not very efficient. Additionally, double 
+	precision issues can arise. Cross multiplying a large polynomial
+	with hundreds of terms takes several minutes, and is not advised.
+	Addition is linear time, and so is scalar multiplication.
+
+	Entering very large unsigned values correctly triggers a guard 
+	when they become negative, but very very large unsigned values
+	are likely to be mapped incorrectly to a valid positive number. 
+	If you promise not to use degrees in your terms higher than say
+	2^31, this shouldn't be a limiting issue.
+
+	Scale refuses to multiply by zero. This probably isn't a huge
+	problem either, but it is tied into the way I validate input.
+
+
+Notes:
+	I did use Horner's method to evaluate the polynomial as 
+	repeated multiplication. Since there is always an implicit
+	zero term at the end, this works properly. This required reversing
+	the terms, which ordinarily are in ascending order.
